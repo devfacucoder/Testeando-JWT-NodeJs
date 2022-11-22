@@ -49,4 +49,11 @@ export const updateProductById = async (req, res) => {
     console.log(error)
   }
 };
-export const deleteProductById = (req, res) => {};
+export const deleteProductById = async (req, res) => {
+  try {
+    await productModel.findByIdAndDelete(req.params.idDelete)
+    res.status(200).json()
+  } catch (error) {
+    console.log(error)
+  }
+};
