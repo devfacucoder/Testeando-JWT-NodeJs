@@ -8,7 +8,7 @@
     "build":"babel src --out-dir build"
   },
   "keywords": [],
-  "author": "",
+  "author": "devfacucoder",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
