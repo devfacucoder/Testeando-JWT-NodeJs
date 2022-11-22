@@ -9,5 +9,6 @@ const routerProducts = Router();
 routerProducts.get("/", productsCtrl.getAllProducts);
 routerProducts.get("/:productId", productsCtrl.getOneProductById);
 routerProducts.post("/", productsCtrl.createProduct);
+routerProducts.put('/:idUpadate',productsCtrl.updateProductById);
 
 export default routerProducts;

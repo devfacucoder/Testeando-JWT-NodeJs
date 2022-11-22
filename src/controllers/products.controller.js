@@ -38,5 +38,15 @@ export const getOneProductById = async (req, res) => {
     console.log(error)
   }
 };
-export const updateProductById = (req, res) => {};
+export const updateProductById = async (req, res) => {
+  try {
+    const updateProduct = await productModel.findByIdAndUpdate(req.params.idUpadate,req.body,{
+      new:true
+    })  
+    res.status(200).json(updateProduct);
+
+  } catch (error) {
+    console.log(error)
+  }
+};
 export const deleteProductById = (req, res) => {};
