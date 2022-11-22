@@ -30,6 +30,13 @@ export const createProduct = async (req, res) => {
     console.log("error");
   }
 };
-export const getOneProductById = (req, res) => {};
+export const getOneProductById = async (req, res) => {
+  try {
+    const productDB = await productModel.findById({_id:req.params.productId})
+    res.status(200).json(productDB)
+  } catch (error) {
+    console.log(error)
+  }
+};
 export const updateProductById = (req, res) => {};
 export const deleteProductById = (req, res) => {};
