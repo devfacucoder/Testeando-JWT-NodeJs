@@ -1,3 +1,4 @@
 node_modules
 reglasdev.txt
 build
+.env
