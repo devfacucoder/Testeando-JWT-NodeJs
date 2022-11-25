@@ -16,14 +16,14 @@ export const getAllProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
   try {
     const { name, category, price, imageUrl } = req.body;
-    const newProduct =  new productModel({
+    const newProduct = new productModel({
       name,
       category,
       price,
       imageUrl,
     });
     const saveProduct = await newProduct.save();
-    console.log(saveProduct)
+    console.log(saveProduct);
     res.status(201).json(saveProduct);
   } catch (error) {
     res.send("error");
@@ -32,28 +32,33 @@ export const createProduct = async (req, res) => {
 };
 export const getOneProductById = async (req, res) => {
   try {
-    const productDB = await productModel.findById({_id:req.params.productId})
-    res.status(200).json(productDB)
+    const productDB = await productModel.findById({
+      _id: req.params.productId,
+    });
+    res.status(200).json(productDB);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 export const updateProductById = async (req, res) => {
   try {
-    const updateProduct = await productModel.findByIdAndUpdate(req.params.idUpadate,req.body,{
-      new:true
-    })  
+    const updateProduct = await productModel.findByIdAndUpdate(
+      req.params.idUpadate,
+      req.body,
+      {
+        new: true,
+      }
+    );
     res.status(200).json(updateProduct);
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
 export const deleteProductById = async (req, res) => {
   try {
-    await productModel.findByIdAndDelete(req.params.idDelete)
-    res.status(200).json()
+    await productModel.findByIdAndDelete(req.params.idDelete);
+    res.status(200).json();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 };
